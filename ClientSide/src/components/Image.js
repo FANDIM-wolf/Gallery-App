@@ -29,7 +29,7 @@ export default class Images extends Component {
         console.error(error);
       });
   };
-
+  
   render() {
     return (
       <div className="container pt-4">
