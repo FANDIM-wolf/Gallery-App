@@ -26,11 +26,12 @@ export default {
    data(){
     return{
        posts: [
-            { id:1, Name: 'Frank', Description: 'Murphy' },
+            { id:1, Name: 'Frank', Description: '1650816992231389.png' },
+            {id:2, Name:'Mikhail Shishov' , Description: '1650818877265886.jfif'}
            
         ],
         dialogVisible:false
-     
+        
     }
   },
   methods:{
@@ -48,7 +49,8 @@ export default {
     ,
     showDialog(){
         this.dialogVisible = true;
-    },
+    }
+    
     
     
   }

@@ -2,7 +2,8 @@
 
 <div class="post">
         <p>{{post.Name }}</p>
-        <p>{{post.Description }}</p>
+        <img :src="path+post.Description" width="300" height="400">
+        <p></p>
         <button v-on:click="$emit('remove' ,post)">Удалить</button>
     </div>
 
@@ -11,10 +12,17 @@
 <script>
  export default{
      props:{
+         
          post:{
              type:Object,
              required:true
          }
+     }
+     ,
+     data(){
+        return{
+        path:'http://localhost:8000/uploads/'
+        }
      }
  }
 </script>
