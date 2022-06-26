@@ -23,13 +23,17 @@ export default {
   },
    methods:{
     createPost(){
-      this.post.id =  Math.random() * (12003 - 1) + 1
+      if(this.post.Name.length >= 4  && this.post.Description.length >= 4){
+        console.log(this.post.Name);
+        this.post.id =  Math.random() * (12003 - 1) + 1
       this.$emit('create' , this.post)  
       this.post = {
           Name: ' ',
           Description: ' '
       }
+      }
     }
+   
   }
  
 }
