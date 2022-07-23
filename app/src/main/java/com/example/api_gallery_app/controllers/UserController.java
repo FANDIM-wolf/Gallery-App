@@ -5,7 +5,12 @@ import com.example.api_gallery_app.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -75,5 +80,16 @@ public class UserController {
     public Optional<UserEntity> get_user_by_Id(@RequestParam  Long id){
 
         return userRepo.findById(id);
+    }
+
+    //upload  file
+    @PostMapping("/upload")
+    public String fileUpload(@RequestParam("file") MultipartFile file) throws IOException {
+        File convertFile = new File("D:/"+file.getOriginalFilename());
+        convertFile.createNewFile();
+        FileOutputStream fout = new FileOutputStream(convertFile);
+        fout.write(file.getBytes());
+        fout.close();
+        return "File is upload successfully";
     }
 }
